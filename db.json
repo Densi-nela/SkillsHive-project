@@ -1,0 +1,178 @@
+{
+  "users": [
+    {
+      "name": "Densinela Chepngetich",
+      "email": "densinela@gmail.com",
+      "password": "123456",
+      "id": "dKSnvriDWp4",
+      "skillsOffered": [
+        "Graphic Design",
+        "Web Development",
+        "JavaScript"
+      ],
+      "skillsWanted": [
+        "Content Writing",
+        "Social Media Marketing"
+      ]
+    },
+    {
+      "name": "caren Chemjor",
+      "email": "caren@gmail.com",
+      "password": "123456",
+      "id": "BU0sPhQBVA4",
+      "skillsOffered": [
+        "Video Editing",
+        "React",
+        "Public Speaking",
+        "Spanish Language"
+      ],
+      "skillsWanted": [
+        "Web Development",
+        "Copywriting",
+        "Excel & Spreadsheets"
+      ]
+    },
+    {
+      "name": "brian mutai",
+      "email": "Brian@gmail.com",
+      "password": "123456",
+      "id": "sSfaIxaiagQ"
+    },
+    {
+      "name": "Bkm",
+      "email": "brian1@gmail.com",
+      "password": "123456",
+      "id": "zsV-FNpBzh4",
+      "skillsOffered": [
+        "Web Development",
+        "Content Writing",
+        "Social Media Marketing"
+      ],
+      "skillsWanted": [
+        "Excel & Spreadsheets",
+        "Photography"
+      ]
+    },
+    {
+      "name": "densic",
+      "email": "densi@gmail.com",
+      "password": "123456",
+      "id": "BR5eZnEGfpE",
+      "skillsOffered": [
+        "Graphic Design",
+        "Web Development",
+        "Content Writing"
+      ],
+      "skillsWanted": [
+        "UI/UX Design",
+        "Python",
+        "Public Speaking"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "1",
+      "name": "Graphic Design",
+      "category": "Creative"
+    },
+    {
+      "id": "2",
+      "name": "UI/UX Design",
+      "category": "Creative"
+    },
+    {
+      "id": "3",
+      "name": "Photography",
+      "category": "Creative"
+    },
+    {
+      "id": "4",
+      "name": "Video Editing",
+      "category": "Creative"
+    },
+    {
+      "id": "5",
+      "name": "Web Development",
+      "category": "Tech"
+    },
+    {
+      "id": "6",
+      "name": "Python",
+      "category": "Tech"
+    },
+    {
+      "id": "7",
+      "name": "JavaScript",
+      "category": "Tech"
+    },
+    {
+      "id": "8",
+      "name": "React",
+      "category": "Tech"
+    },
+    {
+      "id": "9",
+      "name": "Content Writing",
+      "category": "Writing"
+    },
+    {
+      "id": "10",
+      "name": "Copywriting",
+      "category": "Writing"
+    },
+    {
+      "id": "11",
+      "name": "SEO",
+      "category": "Marketing"
+    },
+    {
+      "id": "12",
+      "name": "Social Media Marketing",
+      "category": "Marketing"
+    },
+    {
+      "id": "13",
+      "name": "Excel & Spreadsheets",
+      "category": "Business"
+    },
+    {
+      "id": "14",
+      "name": "Public Speaking",
+      "category": "Business"
+    },
+    {
+      "id": "15",
+      "name": "French Language",
+      "category": "Language"
+    },
+    {
+      "id": "16",
+      "name": "Spanish Language",
+      "category": "Language"
+    },
+    {
+      "id": "17",
+      "name": "Music Production",
+      "category": "Creative"
+    },
+    {
+      "id": "18",
+      "name": "Data Analysis",
+      "category": "Tech"
+    }
+  ],
+  "exchanges": [
+    {
+      "fromUserId": "BR5eZnEGfpE",
+      "fromUserName": "densic",
+      "toUserId": "BU0sPhQBVA4",
+      "toUserName": "caren Chemjor",
+      "offeredSkill": "Web Development",
+      "wantedSkill": "Public Speaking",
+      "status": "pending",
+      "id": "UqBKZ5REKic"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
