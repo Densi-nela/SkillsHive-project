@@ -85,7 +85,13 @@
       "name": "bkk",
       "email": "Bkkk@yahoo.com",
       "password": "123456",
-      "id": "7DVEg6zRhLI"
+      "id": "7DVEg6zRhLI",
+      "skillsOffered": [
+        "Graphic Design"
+      ],
+      "skillsWanted": [
+        "UI/UX Design"
+      ]
     }
   ],
   "skills": [

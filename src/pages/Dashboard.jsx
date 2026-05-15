@@ -74,6 +74,27 @@ const Dashboard = () => {
     }
   };
 
+  // Accept or decline an incoming exchange request
+  const handleUpdateStatus = async (exchangeId, status) => {
+    try {
+      const response = await fetch(
+        `https://skillshive-project-3.onrender.com/exchanges/${exchangeId}`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ status }),
+        }
+      );
+      if (!response.ok) { alert("Failed to update request"); return; }
+      const updated = await response.json();
+      setExchanges((prev) =>
+        prev.map((e) => (e.id === exchangeId ? updated : e))
+      );
+    } catch {
+      alert("Something went wrong");
+    }
+  };
+
   const getExchangeWithUser = (userId) =>
     exchanges.find(
       (e) => (e.fromUserId === user.id && e.toUserId === userId) ||
@@ -219,7 +240,7 @@ const Dashboard = () => {
                         {/* Action */}
                         {exchange ? (
                           <span className={`text-xs px-3 py-1.5 rounded-lg border font-medium ${statusColors[exchange.status]}`}>
-                            {exchange.status === "pending" ? " Pending" : exchange.status === "accepted" ? " Accepted" : " Declined"}
+                            {exchange.status === "pending" ? " Pending" : exchange.status === "accepted" ? "Accepted" : "✕ Declined"}
                           </span>
                         ) : (
                           <button
@@ -272,9 +293,28 @@ const Dashboard = () => {
                             </p>
                           </div>
                         </div>
-                        <span className={`text-xs px-3 py-1.5 rounded-lg border font-medium ${statusColors[exchange.status]}`}>
-                          {exchange.status === "pending" ? " Pending" : exchange.status === "accepted" ? " Accepted" : " Declined"}
-                        </span>
+
+                        {/* Accept / Decline for incoming pending requests */}
+                        {!isFromMe && exchange.status === "pending" ? (
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => handleUpdateStatus(exchange.id, "accepted")}
+                              className="text-xs bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg transition-colors font-medium"
+                            >
+                               Accept
+                            </button>
+                            <button
+                              onClick={() => handleUpdateStatus(exchange.id, "declined")}
+                              className="text-xs bg-red-600/20 hover:bg-red-600/40 text-red-400 border border-red-500/20 px-3 py-1.5 rounded-lg transition-colors font-medium"
+                            >
+                              ✕ Decline
+                            </button>
+                          </div>
+                        ) : (
+                          <span className={`text-xs px-3 py-1.5 rounded-lg border font-medium ${statusColors[exchange.status]}`}>
+                            {exchange.status === "pending" ? "⏳ Pending" : exchange.status === "accepted" ? "✅ Accepted" : "✕ Declined"}
+                          </span>
+                        )}
                       </div>
                     );
                   })}
