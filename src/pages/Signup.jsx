@@ -13,7 +13,7 @@ const LoginForm = () => {
     try {
       if (isLogin) {
         const response = await fetch(
-          `http://localhost:3030/users?email=${email}`,
+          `https://skillshive-project-3.onrender.com/users?email=${email}`,
         );
         if (!response.ok) { alert("Login failed"); return; }
         const data = await response.json();
@@ -30,7 +30,7 @@ const LoginForm = () => {
         alert(`Welcome ${user.name}`);
         navigate("/community"); // 
       } else {
-        const response = await fetch("http://localhost:3030/users", {
+        const response = await fetch("https://skillshive-project-3.onrender.com/users", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, email, password }),

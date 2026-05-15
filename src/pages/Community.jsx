@@ -18,7 +18,7 @@ const Community = () => {
 
   useEffect(() => {
     if (!user) { navigate("/"); return; }
-    fetch("http://localhost:3030/skills")
+    fetch("https://skillshive-project-3.onrender.com/skills")
       .then((res) => res.json())
       .then((data) => { setSkills(data); setLoading(false); })
       .catch(() => setLoading(false));
@@ -52,7 +52,7 @@ const Community = () => {
     if (skillsWanted.length === 0) { alert("Please select at least one skill you want to learn."); return; }
     setSaving(true);
     try {
-      const response = await fetch(`http://localhost:3030/users/${user.id}`, {
+      const response = await fetch(`https://skillshive-project-3.onrender.com/users/${user.id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ skillsOffered, skillsWanted }),

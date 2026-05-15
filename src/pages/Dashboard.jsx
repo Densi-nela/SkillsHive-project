@@ -13,8 +13,8 @@ const Dashboard = () => {
   useEffect(() => {
     if (!user) { navigate("/"); return; }
     Promise.all([
-      fetch("http://localhost:3030/users").then((r) => r.json()),
-      fetch("http://localhost:3030/exchanges").then((r) => r.json()),
+      fetch("https://skillshive-project-3.onrender.com/users").then((r) => r.json()),
+      fetch("https://skillshive-project-3.onrender.com/exchanges").then((r) => r.json()),
     ]).then(([allUsers, allExchanges]) => {
       setUsers(allUsers.filter((u) => u.id !== user.id));
       setExchanges(allExchanges.filter(
@@ -50,7 +50,7 @@ const Dashboard = () => {
       const wantedSkill = (user.skillsWanted || []).find((s) =>
         (toUser.skillsOffered || []).includes(s)
       );
-      const response = await fetch("http://localhost:3030/exchanges", {
+      const response = await fetch("https://skillshive-project-3.onrender.com/exchanges", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
