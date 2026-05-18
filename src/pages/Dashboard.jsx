@@ -261,7 +261,7 @@ const Dashboard = () => {
             {/* Exchanges Section */}
             <div>
               <div className="flex items-center gap-3 mb-5">
-                <h2 className="text-lg font-semibold text-white">📬 Exchange Requests</h2>
+                <h2 className="text-lg font-semibold text-white"> Exchange Requests</h2>
                 <span className="bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs px-2.5 py-0.5 rounded-full">
                   {exchanges.length}
                 </span>
@@ -312,7 +312,7 @@ const Dashboard = () => {
                           </div>
                         ) : (
                           <span className={`text-xs px-3 py-1.5 rounded-lg border font-medium ${statusColors[exchange.status]}`}>
-                            {exchange.status === "pending" ? "⏳ Pending" : exchange.status === "accepted" ? "✅ Accepted" : "✕ Declined"}
+                            {exchange.status === "pending" ? " Pending" : exchange.status === "accepted" ? " Accepted" : "✕ Declined"}
                           </span>
                         )}
                       </div>

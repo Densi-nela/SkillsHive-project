@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
-
+import { useNavigate } from "react-router-dom";
 const HomePage = () => {
   const stats = [
     { value: "10K+", label: "Active Learners" },
@@ -10,6 +10,7 @@ const HomePage = () => {
   ];
 
   const [query, setQuery] = useState("");
+  const navigate = useNavigate()
 
   return (
     <main>
@@ -59,7 +60,8 @@ const HomePage = () => {
             </div>
 
             {/* CTA button */}
-            <button className="bg-white text-blue-900 font-bold px-7 h-14 rounded-xl shadow-lg hover:bg-blue-900 hover:text-white transition">
+            <button onClick={() => navigate("/signup")}
+            className="bg-white text-blue-900 font-bold px-7 h-14 rounded-xl shadow-lg hover:bg-blue-900 hover:text-white transition">
               Get Started →
             </button>
           </div>
@@ -86,7 +88,50 @@ const HomePage = () => {
           <p className="text-gray-500 text-base">
             Explore skills across various disciplines
           </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+  {["Design", "Coding", "Music", "Business"].map((cat, i) => (
+    <div
+      key={i}
+      className="bg-gray-100 p-4 rounded-lg text-center hover:bg-gray-200 cursor-pointer"
+    >
+      {cat}
+    </div>
+  ))}
+</div>
         </div>
+        <section className="py-16 px-6 bg-white">
+  <div className="text-center mb-10">
+    <h2 className="text-3xl font-bold text-gray-900">
+      Featured Skills
+    </h2>
+    <p className="text-gray-500">
+      Popular skills people are exchanging right now
+    </p>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    {[
+      "Web Development",
+      "UI/UX Design",
+      "Photography",
+      "Video Editing",
+      "Data Science",
+      "Marketing",
+    ].map((skill, i) => (
+      <div
+        key={i}
+        className="p-6 border rounded-xl shadow-sm hover:shadow-md transition"
+      >
+        <h3 className="text-lg font-semibold text-gray-800">
+          {skill}
+        </h3>
+        <p className="text-sm text-gray-500 mt-2">
+          Learn or teach {skill.toLowerCase()} with real people
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
       </section>
 
      <Footer />

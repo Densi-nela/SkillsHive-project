@@ -12,6 +12,7 @@ const Community = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [activeTab, setActiveTab] = useState("offer");
+  const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("user"));
@@ -23,9 +24,12 @@ const Community = () => {
       .then((data) => { setSkills(data); setLoading(false); })
       .catch(() => setLoading(false));
   }, []);
+  const filteredSkills = skills.filter(skill =>
+  skill.name.toLowerCase().includes(search.toLowerCase())
+);
 
   // Group skills by category
-  const grouped = skills.reduce((acc, skill) => {
+  const grouped = filteredSkills.reduce((acc, skill) => {
     if (!acc[skill.category]) acc[skill.category] = [];
     acc[skill.category].push(skill);
     return acc;
@@ -83,6 +87,13 @@ const Community = () => {
           <h1 className="text-3xl font-bold text-white tracking-tight">Build your skill profile</h1>
           <p className="text-slate-400 mt-2">Select the skills you can teach and the ones you want to learn.</p>
         </div>
+        <input
+  type="text"
+  placeholder="Search skills..."
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  className="w-full p-2 rounded bg-slate-800 text-white mb-4"
+/>
 
         {/* Tab Toggle */}
         <TabToggle
